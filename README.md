@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SecurityVault 🔐
+Your Secure Password Manager Platform – built with modern web technologies to keep your sensitive data safe.
 
-## Getting Started
+## 🚀 Overview
+**SecurityVault** is a zero-trust password manager built with **Next.js**, **NextAuth**, **MongoDB**, and **Nodemailer**. It allows users to securely store and manage their credentials for various applications. Security is the highest priority, featuring email confirmation, AES-256 encryption, and strict access control.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 🌐 Built using **Next.js App Router** for rapid and scalable development
+- 🔐 **Custom authentication** system using NextAuth
+- 📧 Email verification with OTP sent via **Nodemailer**
+- 🔑 **AES-256 encrypted** passwords for secure storage
+- 🧾 User-specific password vault (data is linked via `userId` from MongoDB)
+- 👁️‍🗨️ Toggle visibility for stored passwords in the UI
+- 🛡️ Protected API routes using **Next.js Middleware**
+- 📦 Clean, attractive, and responsive user interface
+- 🧰 Fully encrypted database entries – even if breached, raw passwords stay hidden
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Tech Stack
 
-## Learn More
+| Technology  | Purpose                     |
+|-------------|-----------------------------|
+| Next.js     | Frontend & API Routes       |
+| NextAuth    | Authentication              |
+| MongoDB     | Database                    |
+| Mongoose    | ODM for MongoDB             |
+| Nodemailer  | Sending OTP confirmation    |
+| Bcrypt & AES| Encryption and Security     |
+| Tailwind CSS| UI Styling                  |
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔐 Security Highlights
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Password Encryption**: Passwords are stored using **AES-256 encryption**.
+- **Email Verification**: Users receive an OTP code to verify email before activating accounts.
+- **Middleware Protection**: All sensitive routes are protected via **Next.js middleware**.
+- **Isolated User Data**: Passwords are stored under `userId` to ensure no user can access another's data.
 
-## Deploy on Vercel
+### 🔐 Sample Encrypted Password Entry
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```json
+{
+  "_id": "685956715823c3a97de9684f",
+  "userId": "68220ee61f1df3cf64b251f8",
+  "app": "facebook",
+  "username": "shayanfarooqui789@gmail.com",
+  "password": "e864c5eb6ef0c0a55bae5edae537fac0:3b5501240b6be871808bcb40b54fc621", // AES-256
+  "__v": 0
+}
