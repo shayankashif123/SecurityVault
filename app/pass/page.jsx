@@ -23,7 +23,7 @@ const Manager = () => {
     if (!session?.user?.id) return;
     const fetchPasswords = async () => {
       try {
-        const response = await axios.get(`api/info?userId=${session.user.id}`);
+        const response = await axios.get(`/api/info`);
         setPasswords(response.data);
       } catch (err) {
         console.error("Error fetching passwords:", err);
