@@ -50,7 +50,7 @@ const Manager = () => {
       const userId = session.user.id;
 
       if (editId) {
-        const response = await axios.put(`api/info/${editId}?userId=${userId}`, data);
+        const response = await axios.put(`api/info/${editId}`, data);
         setPasswords(prev => prev.map(p =>
           p.id === editId
             ? { ...response.data, id: response.data.id || editId }
@@ -83,7 +83,7 @@ const Manager = () => {
     try {
       const userId = session.user.id;
       const stringId = id.toString();
-      await axios.delete(`api/info/${stringId}?userId=${userId}`);
+      await axios.delete(`api/info/${stringId});
 
       setPasswords(prev =>
         prev.filter(item => item.id.toString() !== stringId)
